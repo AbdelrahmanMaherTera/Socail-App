@@ -3,7 +3,7 @@ import style from "./GuestRoute.module.css"
 import { UserContext } from "../../Context/UserContext"
 import { Navigate } from "react-router-dom"
 
-export default function GuestRoute() {
+export default function GuestRoute({children}) {
     
     let {userToken} = useContext(UserContext)
     if(!userToken){
