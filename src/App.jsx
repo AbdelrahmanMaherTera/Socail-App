@@ -14,16 +14,21 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import PostDetails from "./Components/PostDetails/PostDetails"
 import { Toaster } from "react-hot-toast"
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute"
+import GuestRoute from "./Components/GuestRoute/GuestRoute"
 
 const query = new QueryClient() 
 
 function App() {
 
   let routes = createBrowserRouter([
-      {path: "" , element: <Layout /> , children: [
+      {path: "" , element: <ProtectedRoute><Layout /></ProtectedRoute> , children: [
         {index: true , element: <Home />},
         {path: "postdetails/:id" , element: <PostDetails />},
         {path: "profile" , element: <Profile />},
+        {path: "*" , element: <Notfound />},
+      ]},
+      {path: "" , element: <GuestRoute><Layout /></GuestRoute> , children: [
         {path: "login" , element: <Login />},
         {path: "register" , element: <Register />},
         {path: "*" , element: <Notfound />},
