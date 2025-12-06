@@ -1,0 +1,36 @@
+import React from "react"
+import style from "./SocialAppLogo.module.css"
+
+export default function SocialAppLogo({ className }) {
+    return (
+        <>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 200 200"
+                className={className}
+                role="img"
+                aria-label="Social App Logo"
+            >
+                {/* تعريف التدرج اللوني (Gradient) */}
+                <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#6366f1', stopOpacity: 1 }} /> {/* Indigo */}
+                    <stop offset="100%" style={{ stopColor: '#a855f7', stopOpacity: 1 }} /> {/* Purple */}
+                    </linearGradient>
+                </defs>
+
+                {/* شكل فقاعة المحادثة (Chat Bubble) */}
+                <path
+                    fill="url(#logoGradient)"
+                    d="M100 0C44.8 0 0 44.8 0 100c0 18.2 4.9 35.3 13.6 50.2L3.8 186.6c-1.3 4.7 3 8.9 7.7 7.6l38.7-10.8C64.3 194.2 81.6 200 100 200c55.2 0 100-44.8 100-100S155.2 0 100 0z"
+                />
+
+                {/* حرف S الأبيض في المنتصف */}
+                <path
+                    fill="white"
+                    d="M132.5 73.2c-4.2-3.6-9.8-5.8-16.3-5.8-11.2 0-18.2 6.2-18.2 15.3 0 18.2 25.5 13.8 25.5 28.7 0 7.3-6.2 12.4-16.7 12.4-6.5 0-13.5-2.2-18.5-6.2l-5.5 8.7c5.8 4.7 14.5 7.6 24 7.6 13.5 0 21.8-7.3 21.8-17.5 0-19.3-25.5-14.9-25.5-28.7 0-6.2 4.7-10.2 13.1-10.2 5.1 0 10.2 1.8 14.2 4.7l5.1-9z"
+                />
+            </svg>
+        </>
+    )
+}
