@@ -59,15 +59,17 @@ export default function ChangePassword() {
         onSuccess: () => {
             toast.dismiss(toastLoadingId)
             toast.success("Password Changed Successfully")
-            navigate("/login")
-            setUserToken(null)
             localStorage.removeItem("userToken")
+            setUserToken(null)
+            localStorage.removeItem("userId")
+            navigate("/login")
         },
         onMutate: () => {
             toastLoadingId = toast.loading("Changing Password...")
         },
-        onError: () => {
+        onError: (error) => {
             toast.dismiss(toastLoadingId)
+            toast.error(error.response.data.error)
         },
     })
 
